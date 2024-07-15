@@ -1,4 +1,20 @@
 .logo {
     width: 200px; 
     height: 200px;
- }
+}
+
+header {
+    background-color: blanchedalmond;
+}
+
+main {
+    background-color: blueviolet;
+}
+
+nav {
+    background-color: rgb(5, 185, 137);
+}
+
+footer {
+    background-color: rgb(174, 174, 161);
+}
