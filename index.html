@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="de" dir="ltr">
 
 <head>
     <meta charset="utf-8" />
@@ -36,6 +36,18 @@
         <p>Rechtlicher Hinweis 1</p>
         <p>Rechtlicher Hinweis 2</p>
     </footer>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const userLang = navigator.language || navigator.userLanguage;
+
+            if (userLang.startsWith('ar') || userLang.startsWith('he')) {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        });
+    </script>
 </body>
 
 </html>
