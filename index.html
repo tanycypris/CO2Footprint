@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
-    <link rel="stylesheet" href="styles.css" />
+    <link href="https://cdn.datatables.net/v/bm/jq-3.7.0/dt-2.1.0/sp-2.3.1/sl-2.0.3/datatables.min.css" rel="stylesheet">
+ 
+<script src="https://cdn.datatables.net/v/bm/jq-3.7.0/dt-2.1.0/sp-2.3.1/sl-2.0.3/datatables.min.js"></script>
+
+<link rel="stylesheet" href="styles.css" />
     <title>CO2Footprint</title>
 </head>
 
@@ -36,13 +40,54 @@
             </header>
             <main class="section">
                 <div class="content">
-                    <h2 class="title is-4">Inhalt bla 1</h2>
-                    <p>Co2 inhalt bla</p>
-                    <p>Co2 inhalt bla</p>
+                    <h2 class="title is-4">Die CO2 Tabelle</h2>
                     
-                    <h2 class="title is-4">Inhalt bla 2</h2>
-                    <p>Co2 inhalt bla</p>
-                    <p>Co2 inhalt bla</p>
+                    <table class="table is-striped is-hoverable" id="emissionsTable">
+                        <thead>
+                            <tr>
+                                <th>Land</th>
+                                <th>Unternehmen</th>
+                                <th>CO2 Emissionen (Tonnen)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Deutschland</td>
+                                <td>Unternehmen A</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>USA</td>
+                                <td>Unternehmen B</td>
+                                <td>1500</td>
+                            </tr>
+                            <tr>
+                                <td>Schweiz</td>
+                                <td>Unternehmen C</td>
+                                <td>2000</td>
+                            </tr>
+                            <tr>
+                                <td>Deutschland</td>
+                                <td>Unternehmen D</td>
+                                <td>2500</td>
+                            </tr>
+                            <tr>
+                                <td>USA</td>
+                                <td>Unternehmen E</td>
+                                <td>3000</td>
+                            </tr>
+                            <tr>
+                                <td>Schweiz</td>
+                                <td>Unternehmen F</td>
+                                <td>1200</td>
+                            </tr>
+                            <tr>
+                                <td>Schweiz</td>
+                                <td>Unternehmen G</td>
+                                <td>2800</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </main>
         </div>
@@ -51,6 +96,35 @@
             <p>Rechtlicher Hinweis 1</p>
             <p>Rechtlicher Hinweis 2</p>
     </footer>
+
+    <script>
+        new DataTable('#emissionsTable', {
+            layout: {
+                top1: 'searchPanes'
+            },
+            columnDefs: [
+                {
+                    searchPanes: {
+                        show: true
+                    },
+                    targets: [0]
+                },
+                {
+                    searchPanes: {
+                        show: true
+                    },
+                    targets: [1]
+                },
+                {
+                    searchPanes: {
+                        show: false
+                    },
+                    targets: [2]
+                }
+            ]
+        });
+    </script>
+
 </body>
 
 </html>
